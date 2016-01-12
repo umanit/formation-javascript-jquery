@@ -13,7 +13,7 @@
                 <p>En utilisant la fonction <code>$.ajax</code> de jQuery et sans modifier le fichier HTML :</p>
                 <ol>
                     <li>Prendre connaissance de la <a href="http://api.jquery.com/jquery.ajax" target="_blank">documentation</a>.
-                    <li>Faire un appel ajax du fichier <code>books.json</code>. Utiliser <code>$.ajax(params);</code> où <code>params</code> est un objet contenant au moins les clés <code>url</code> (chaîne de caractères désignant la ressource à requêter) et <code>success</code> (fonction anonyme de callback).
+                    <li>Faire un appel ajax du fichier <code>https://raw.githubusercontent.com/vrobic/formation-javascript-jquery/master/td/jquery/books.json</code>. Utiliser <code>$.ajax(params);</code> où <code>params</code> est un objet contenant au moins les clés <code>url</code> (chaîne de caractères désignant la ressource à requêter), <code>dataType</code> (type de réponse attendue, ici <code>"json"</code>) et <code>success</code> (fonction anonyme de callback).
                     <li>Stocker la réponse de cet appel dans une variable (sniffer les paramètres de la fonction de callback pour trouver la réponse).
                     <li>Boucler sur cette variable pour compléter la liste à puces (<code>$('&lt;li&gt;')</code> et <code>$('&lt;a&gt;')</code>, <code>.html</code> ou <code>.append</code>, <code>.attr</code>).
                     <li>Si la propriété <abbr>external</abbr> d'un livre vaut <code>true</code>, le lien devra s'ouvrir dans un nouvel onglet (<code>.attr</code>).
