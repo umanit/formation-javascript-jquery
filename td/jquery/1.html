@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>jQuery</title>
+        <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="1.css">
+    </head>
+    <body>
+        <div class="jumbotron">
+            <div class="container">
+                <p>Objectifs : créer un système d'onglets (tabs).</p>
+                <p>Avec jQuery, et la possibilité de modifier le fichier HTML :</p>
+                <ol>
+                    <li>Ajouter des ancres pour lier sémantiquement menu et contenu.
+                    <li>Un seul onglet ne peut être affiché à la fois. Utiliser une classe CSS pour cibler l'onglet ouvert.
+                    <li>Le clic sur un des éléments du menu doit afficher l'onglet correspondant.
+                    <li>Si une des ancres est présente dans l'URL au chargement de la page, afficher l'onglet correspondant.
+                    <li>Créer un plugin jQuery pour encapsuler le code.
+                </ol>
+            </div>
+        </div>
+
+        <h1>Onglets</h1>
+        <!-- Menu -->
+        <ul class="nav nav-tabs">
+            <li>Onglet n°1
+            <li>Onglet n°2
+            <li>Onglet n°3
+        </ul>
+        <!-- Contenu -->
+        <div class="tab-content">
+            <section>
+                <h2>Onglet n°1</h2>
+                <p>Contenu de l'onglet n°1</p>
+            </section>
+            <section>
+                <h2>Onglet n°2</h2>
+                <p>Contenu de l'onglet n°2</p>
+            </section>
+            <section>
+                <h2>Onglet n°3</h2>
+                <p>Contenu de l'onglet n°3</p>
+            </section>
+        </div>
+
+        <!-- Scripts -->
+        <script src="../../lib/jquery/jquery-2.2.0.min.js"></script>
+        <script src="1.js"></script>
+    </body>
+</html>

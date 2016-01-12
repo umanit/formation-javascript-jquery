@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Javascript</title>
+        <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="jumbotron">
+            <div class="container">
+                <p>Objectifs : manipuler le DOM, créer un écouteur d'évènement, utiliser des structures de contrôle et créer une fonction.</p>
+                <p>En Javascript et sans modifier le fichier HTML :</p>
+                <ol>
+                    <li>Transformer ce select en select multiple.
+                    <li>Corriger ma faute d'orthographe (<code>children</code>, <code>innerHTML</code>).
+                    <li>Sélectionner les deux dernières options uniquement.
+                    <li>Ajouter un élément à la liste. (<code>createElement</code>, <code>createTextNode</code> et <code>appendChild</code>).
+                    <li>Au clic sur le bouton, utiliser le champ de saisie pour ajouter dynamiquement un nouvel élément à la liste. Utiliser <code>document.forms</code> pour accéder au formulaire et <code>.elements</code> pour ses inputs.
+                    <li>Ajouter un second bouton pour supprimer le dernier élément de la liste. (<code>lastElementChild</code> et <code>removeChild</code>).
+                    <li>Que se passe-t-il lorsque la liste est vide ? Ajouter une structure de contrôle pour éviter cette erreur.
+                    <li>Utiliser la structure de contrôle <code>for</code> pour ajouter tous les éléments contenus dans la variable <code>fruits</code> (<code>for (var i=0; i&lt;fruits.length; i++) {}</code>).
+                    <li>Créer une fonction <code>addOption</code> et l'utiliser dans les points 4, 5 et 8. Cette fonction prendra en entrée une chaîne de caractères et ajoutera un élément à la liste. Elle ne retournera rien.
+                    <li>Utiliser la fonction <code>addOption</code> depuis la console.
+                </ol>
+            </div>
+        </div>
+
+        <form>
+
+            <label for="fruits">Fruits</label>
+            <select id="fruits">
+                <option>Pomme</option>
+                <option>Ceriz</option>
+                <option>Orange</option>
+            </select>
+
+            <label for="fruit">Fruit</label>
+            <input id="fruit" type="text">
+            <input type="submit" value="Ajouter">
+
+        </form>
+
+        <!-- Scripts -->
+        <script>
+            var fruits = [
+                "Ananas",
+                "Framboise",
+                "Clémentine",
+                "Fraise",
+                "Melon",
+                "Prune",
+                "Tomate",
+                "Pêche",
+                "Pamplemousse"
+            ];
+        </script>
+        <script src="0.js"></script>
+    </body>
+</html>

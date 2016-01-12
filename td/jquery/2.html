@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>jQuery</title>
+        <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="2.css">
+    </head>
+    <body>
+        <div class="jumbotron">
+            <div class="container">
+                <p>Objectifs : créer un slideshow d'images.</p>
+                <p>Avec jQuery, et sans modifier (de préférence) le fichier HTML :</p>
+                <ol>
+                    <li>Créer une fonction <code>doSlide(index)</code> permettant de déplacer la classe CSS <code>active</code> sur le slide identifié par le paramètre <code>index</code>.
+                    <li>Appeler cette fonction au clic sur les boutons <em>Précédent</em> et <em>Suivant</em> (utiliser <code>.filter()</code> et <code>.index()</code> pour trouver le slide courant). Gérer les cas particuliers des premier et dernier slides à l'aide d'une condition <code>if</code>.
+                    <li>Modifier cette fonction pour déplacer la classe CSS <code>active</code> de l'indicateur.
+                    <li>Au clic sur un des indicateurs, appeler cette fonction pour afficher le slide correspondant (utiliser <code>$(this)</code> et <code>.index()</code> pour trouver l'index de l'indicateur).
+                    <!--<li>Modifier la fonction pour obtenir un effet de défilement horizontal-->
+                    <li>Créer un plugin jQuery pour encapsuler le code.
+                </ol>
+            </div>
+        </div>
+
+        <h1>Slideshow</h1>
+        <div class="slideshow">
+            <div class="slides">
+                <div class="slide active">
+                    <img src="img/0.jpg" alt="Photo n°1">
+                </div>
+                <div class="slide">
+                    <img src="img/1.jpg" alt="Photo n°2">
+                </div>
+                <div class="slide">
+                    <img src="img/2.jpg" alt="Photo n°3">
+                </div>
+                <div class="slide">
+                    <img src="img/3.jpg" alt="Photo n°4">
+                </div>
+            </div>
+            <div class="controls">
+                <a class="btn btn-default prev" href="#">Précédent</a>
+                <a class="btn btn-default next" href="#">Suivant</a>
+            </div>
+            <ul class="indicators">
+                <li class="active"><span>1</span>
+                <li><span>2</span>
+                <li><span>3</span>
+                <li><span>4</span>
+            </ul>
+        </div>
+
+        <!-- Scripts -->
+        <script src="../../lib/jquery/jquery-2.2.0.min.js"></script>
+        <script src="2.js"></script>
+    </body>
+</html>

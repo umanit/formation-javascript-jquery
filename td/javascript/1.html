@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Javascript</title>
+        <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="jumbotron">
+            <div class="container">
+                <p>Objectifs : faire des effets graphiques et déclencher des actions différées, à travers des cas concrets.</p>
+                <p>En Javascript et sans modifier le fichier HTML :</p>
+                <ol>
+                    <li>Au survol de la première image, faire apparaître <code>img/laptop.jpg</code>. Utiliser <code>this</code> pour cibler l'image dans les écouteurs.
+                    <li>Mettre la seconde image en noir et blanc lorsqu'on la survole. Cette fois, utiliser CSS : <code>filter: grayscale(100%);</code> et <code>-webkit-filter: grayscale(100%);</code>.
+                    <li>Au clic sur la deuxième image, afficher son texte alternatif dans <code>#legend</code>.
+                    <li>Trois secondes après ce clic, réinitialiser le contenu de <code>#legend</code> (<code>setTimeout</code>).
+                    <li>Toutes les 750 millisecondes, incrémenter la barre de progression de 10 en 10 jusqu'à atteindre 100% (incrémenter avec <code>+=</code>, concaténer des chaînes de caractères avec <code>+</code>, boucle avec <code>setInterval</code> et arrêt avec <code>clearInterval</code>).
+                    <li>Lorsque la barre atteint 100%, lui ajouter la classe <code>progress-bar-success</code> (<code>className</code> et <code>+=</code>).
+                </ol>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <img src="img/laptop-grayscale.jpg" alt="Pierre utilisant son ordinateur portable">
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <img src="img/laptop.jpg" alt="Pierre utilisant son ordinateur portable">
+                <p id="legend"></p>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">0%</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="1.js"></script>
+    </body>
+</html>

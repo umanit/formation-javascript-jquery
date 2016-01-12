@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+
+        <title>Dynamiser des pages web - Javascript</title>
+
+        <meta name="description" content="Dynamiser des pages web avec Javascript et jQuery">
+        <meta name="author" content="Vincent Robic">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+        <link rel="stylesheet" href="../lib/reveal/css/reveal.css">
+        <link rel="stylesheet" href="../lib/reveal/css/theme/solarized.css" id="theme">
+
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="../lib/reveal/lib/css/zenburn.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="style.css">
+
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match(/print-pdf/gi) ? '../lib/reveal/css/print/pdf.css' : '../lib/reveal/css/print/paper.css';
+            document.getElementsByTagName('head')[0].appendChild(link);
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="reveal">
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+
+                <section>
+                    <h1>Ecrire un script</h1>
+                    <p>Les scripts se placent dans <code>&lt;head&gt;</code> ou plutôt juste avant <code>&lt;/body&gt;</code>.</p>
+                    <p>L'attribut <code>language</code> de la balise <code>script</code> est déprécié depuis HTML5.</p>
+                    <pre><code data-trim contenteditable>
+&lt;script&gt;
+    "use strict"; // ça c'est cadeau
+    alert("Hello, world!");
+&lt;/script&gt;
+&lt;script src="path/to/source.js"&gt;&lt;/script&gt;
+                    </code></pre>
+                </section>
+                <section>
+                    <h1>La console</h1>
+                    <p>Pour le debug.</p>
+                    <pre><code data-trim contenteditable>
+var message = "Hello, world!";
+
+alert(message);
+console.log(message);
+console.info(message);
+console.warn(message);
+console.error(message);
+                    </code></pre>
+                </section>
+                <section>
+                    <h1>Quelques rappels ?</h1>
+                    <ul>
+                        <li><strong>commentaires</strong>
+                        <li>variables & types
+                        <li>instructions
+                        <li>structures de contrôle
+                        <li>fonctions
+                    </ul>
+                    <hr>
+                    <pre><code data-trim contenteditable>
+// Commentaire
+alert(); // Commentaire
+
+/* Commentaire
+sur
+plusieurs
+lignes
+alert(); */
+                    </code></pre>
+                </section>
+                <section>
+                    <h1>Quelques rappels ?</h1>
+                    <ul>
+                        <li>commentaires
+                        <li><strong>variables & types</strong>
+                        <li>instructions
+                        <li>structures de contrôle
+                        <li>fonctions
+                    </ul>
+                    <hr>
+                    <p>Sert à stocker une donnée en mémoire vive.</p>
+                    <pre><code data-trim contenteditable>
+"Hello, world!";
+var message = "Hello, world!"; // affectation
+console.log(message);
+                    </code></pre>
+                    <div class="fragment">
+                        <p>Se déclare avec <code>var</code>, en <strong>camelcase</strong>.</p>
+                        <pre><code data-trim contenteditable>
+var customerName = "Marie";
+var size = 167,
+    lastAction,
+    isHappy = true;
+                        </code></pre>
+                    </div>
+                </section>
+                <section>
+                    <h1>Quelques rappels ?</h1>
+                    <ul>
+                        <li>commentaires
+                        <li><strong>variables & types</strong>
+                        <li>instructions
+                        <li>structures de contrôle
+                        <li>fonctions
+                    </ul>
+                    <hr>
+                    <p>On peut mettre de tout dans une variable. Types de données primitifs :</p>
+                    <pre><code data-trim contenteditable>
+"Hello, world!"; // string
+2.5; // number
+true; // boolean
+null; // null
+undefined; // undefined
+                    </code></pre>
+                    <p>Tout le reste est <code>object</code> ou <code>function</code>.</p>
+                </section>
+                <section>
+                    <h1>Quelques rappels ?</h1>
+                    <ul>
+                        <li>commentaires
+                        <li><strong>variables & types</strong>
+                        <li>instructions
+                        <li>structures de contrôle
+                        <li>fonctions
+                    </ul>
+                    <hr>
+                    <p>Même les tableaux sont des <code>object</code>.</p>
+                    <pre><code data-trim contenteditable>
+// Tableau simple
+var letters = ["a", "b"];
+letters.push("c");
+letters[2];
+                    </code></pre>
+                    <pre class="fragment"><code data-trim contenteditable>
+// Tableau associatif
+var letters = {
+    a: "A", // Les clés sont nécessairement des strings
+    "b": "B",
+};
+letters.c = "C";
+letters.c;
+                    </code></pre>
+                </section>
+                <section>
+                    <h1>Quelques rappels ?</h1>
+                    <ul>
+                        <li>commentaires
+                        <li><strong>variables & types</strong>
+                        <li>instructions
+                        <li>structures de contrôle
+                        <li>fonctions
+                    </ul>
+                    <hr>
+                    <p>On peut combiner tableaux et tableaux associatifs :</p>
+                    <pre><code data-trim contenteditable>
+var authors = [
+    {
+        "name": "Jules Verne",
+        "books": ["Voyage au Centre de la Terre"]
+    },
+    {
+        "name": "Honoré de Balzac"
+        "books": ["La Peau de Chagrin", "Le Père Goriot", "Gobseck"]
+    }
+];
+                    </code></pre>
+                    <p>... à l'infini !</p>
+                </section>
+                <section>
+                    <h1>Quelques rappels ?</h1>
+                    <ul>
+                        <li>commentaires
+                        <li><strong>variables & types</strong>
+                        <li>instructions
+                        <li>structures de contrôle
+                        <li>fonctions
+                    </ul>
+                    <hr>
+                    <p>JS est faiblement typé :</p>
+                    <pre><code data-trim contenteditable>
+var a;
+a = "Hello, world!";
+a = 2.5;
+a = true;
+a = null;
+a = undefined;
+                    </code></pre>
+                </section>
+                <section>
+                    <h1>Quelques rappels ?</h1>
+                    <ul>
+                        <li>commentaires
+                        <li>variables & types
+                        <li><strong>instructions</strong>
+                        <li>structures de contrôle
+                        <li>fonctions
+                    </ul>
+                    <hr>
+                    <p>Dicte une action.</p>
+                    <pre><code data-trim contenteditable>
+var message;
+message = 2 * 5;
+alert(message);
+alert(3 * 2);
+message = "Hello, world!";
+console.log(message.length);
+document.getElementById("demo").innerHTML = message;
+                    </code></pre>
+                    <p>Séparées par un point-virgule et un retour à la ligne.</p>
+                </section>
+                <section>
+                    <h1>Quelques rappels ?</h1>
+                    <ul>
+                        <li>commentaires
+                        <li>variables & types
+                        <li>instructions
+                        <li><strong>structures de contrôle</strong>
+                        <li>fonctions
+                    </ul>
+                    <hr>
+                    <p>Servent à contrôler les instructions pour écrire des <strong>algorithmes</strong>.</p>
+                    <pre><code data-trim contenteditable>
+var age = 10; // instruction
+
+// Structure de contrôle : condition
+if (age >= 18) {
+    console.log("adulte"); // instruction
+} elseif (age >= 0) {
+    console.log("enfant"); // instruction
+} else {
+    console.log("c'est possible ça ?"); // instruction
+}
+                    </code></pre>
+                    <p>Le contenu d'un <code>if</code> est toujours interprété comme un <code>boolean</code>.</p>
+                </section>
+                <section>
+                    <h1>Quelques rappels ?</h1>
+                    <ul>
+                        <li>commentaires
+                        <li>variables & types
+                        <li>instructions
+                        <li><strong>structures de contrôle</strong>
+                        <li>fonctions
+                    </ul>
+                    <hr>
+                    <pre><code data-trim contenteditable>
+var age = 0; // instruction
+
+// Structure de contrôle : boucle (de répétition)
+while (age &lt; 18) {
+    console.log("âge : " + age); // instruction
+    age++; // instruction
+}
+console.log("âge : " + age); // instruction
+                    </code></pre>
+                </section>
+                <section>
+                    <h1>Quelques rappels ?</h1>
+                    <ul>
+                        <li>commentaires
+                        <li>variables & types
+                        <li>instructions
+                        <li><strong>structures de contrôle</strong>
+                        <li>fonctions
+                    </ul>
+                    <hr>
+                    <p>Elles suffisent à presque tout faire :</p>
+                    <ul>
+                        <li>conditions : <code>if</code>, <code>elseif</code>, <code>else</code> et <code>switch</code>
+                        <li>boucles : <code>for</code>, <code>while</code>
+                    </ul>
+                    <p>Les boucles (<code>for</code>) sont le plus souvent utilisées pour parcourir des tableaux.</p>
+                </section>
+                <section>
+                    <h1>Quelques rappels ?</h1>
+                    <ul>
+                        <li>commentaires
+                        <li>variables & types
+                        <li>instructions
+                        <li>structures de contrôle
+                        <li><strong>fonctions</strong>
+                    </ul>
+                    <hr>
+                    <p>Une procédure avec <strong>des entrées</strong> (paramètres) et <strong>une sortie</strong> (valeur de retour).</p>
+                    <pre><code data-trim contenteditable>
+function add(a, b) {
+    var result = a + b;
+    return result;
+}
+
+console.log(add(1, 8)); // affiche 9
+                    </code></pre>
+                </section>
+                <section>
+                    <h1>Quelques rappels ?</h1>
+                    <ul>
+                        <li>commentaires
+                        <li>variables & types
+                        <li>instructions
+                        <li>structures de contrôle
+                        <li><strong>fonctions</strong>
+                    </ul>
+                    <hr>
+                    <p>Deux façons de déclarer une fonction :</p>
+                    <pre><code data-trim contenteditable>
+// Fonction classique
+function add(a, b){
+    // ...
+}
+add(1, 1);
+
+// Fonction dite "anonyme" stockée dans une variable
+var add = function(a, b){
+    // ...
+};
+add(1, 1);
+                    </code></pre>
+                </section>
+                <section>
+                    <h1>Quelques rappels ?</h1>
+                    <ul>
+                        <li>commentaires
+                        <li>variables & types
+                        <li>instructions
+                        <li>structures de contrôle
+                        <li><strong>fonctions</strong>
+                    </ul>
+                    <hr>
+                    <p>Javascript embarque déjà quelques fonctions prédéfinies,<br>et jQuery encore plus !</p>
+                </section>
+                <section>
+                    <h1>Opérateurs</h1>
+                    <ul>
+                        <li><code>+</code>
+                        <li><code>-</code>
+                        <li><code>*</code>
+                        <li><code>/</code>
+                        <li><code>%</code>
+                        <li><code>++</code>
+                        <li><code>--</code>
+                    </ul>
+                    <pre><code data-trim contenteditable>
+var a = 1;
+a = a + 1; // 2
+a++; // 3
+                    </code></pre>
+                </section>
+                <section>
+                    <h1>Affectations</h1>
+                    <ul>
+                        <li><code>=</code>
+                        <li><code>+=</code>
+                        <li><code>-=</code>
+                        <li><code>*=</code>
+                        <li><code>/=</code>
+                    </ul>
+                    <pre><code data-trim contenteditable>
+var a = 1;
+a = a + 5; // 6
+a += 2; // 8
+a *= 2; // 16
+                    </code></pre>
+                </section>
+                <section>
+                    <h1>Comparaisons</h1>
+                    <ul>
+                        <li><code>==</code> et <code>===</code>
+                        <li><code>!=</code> et <code>!==</code>
+                        <li><code>&gt;</code> et <code>&lt;</code>
+                        <li><code>&gt;=</code> et <code>&lt;=</code>
+                        <li><code>typeof</code>
+                        <li><code>instanceof</code>
+                        <li><code>?</code>
+                    </ul>
+                    <pre><code data-trim contenteditable>
+var a = 1;
+typeof a; // number
+
+a == true; // true
+a === true; // false
+
+a == "1"; // true
+a === "1"; // false
+
+a == 1; // true
+a === 1; // true
+                    </code></pre>
+                </section>
+                <section>
+                    <h1>Liens utiles</h1>
+                    <ul>
+                        <li><a href="http://www.w3schools.com/js/js_conventions.asp" target="_blank">http://www.w3schools.com/js/js_conventions.asp</a>
+                        <li><a href="http://www.w3schools.com/js/js_best_practices.asp" target="_blank">http://www.w3schools.com/js/js_best_practices.asp</a>
+                    </ul>
+                </section>
+                <section>
+                    <h1>Sélection d'éléments <abbr title="Document Objet Model" lang="en">DOM</abbr></h1>
+                    <p>En Javascript brut :</p>
+                    <pre><code data-trim contenteditable>
+// Les éléments "label"
+document.getElementsByTagName("label");
+
+// Les éléments qui ont l'id "user-form"
+document.getElementById("user-form");
+
+// Les éléments qui ont la class "submit"
+var submits = document.getElementsByClassName("submit");
+
+// Le deuxième élément qui a la classe "submit"
+submits.[1];
+                    </code></pre>
+                    <p>Bonne pratique : stocker les résultats dans des variables s'ils doivent être réutilisés.</p>
+                </section>
+                <section>
+                    <h1>Évènements</h1>
+                    <p>Déclenchés sur un objet, le plus souvent sur un élément <abbr title="Document Objet Model" lang="en">DOM</abbr>.</p>
+                </section>
+                <section>
+                    <h1>Évènements</h1>
+                    <p>Souris</p>
+                    <ul>
+                        <li><code>click</code>
+                        <li><code>dblclick</code>
+                        <li><code>mousedown</code>
+                        <li><code>mouseup</code>
+                        <li><code>mouseenter</code> ou <code>mouseover</code>
+                        <li><code>mouseleave</code> ou <code>mouseout</code>
+                        <li><code>mousemove</code>
+                        <li><code>scroll</code>
+                    </ul>
+                </section>
+                <section>
+                    <h1>Évènements</h1>
+                    <p>Clavier</p>
+                    <ul>
+                        <li><code>keydown</code>
+                        <li><code>keyup</code>
+                        <li><code>keypress</code> (maintien d'une touche enfoncée)
+                    </ul>
+                </section>
+                <section>
+                    <h1>Évènements</h1>
+                    <p>Autres</p>
+                    <ul>
+                        <li><code>focus</code>
+                        <li><code>blur</code>
+                        <li><code>resize</code>
+                        <li><code>change</code>
+                        <li>...
+                    </ul>
+                    <p>Doc : <a href="http://www.w3schools.com/jsref/dom_obj_event.asp" target="_blank">http://www.w3schools.com/jsref/dom_obj_event.asp</a></p>
+                </section>
+                <section>
+                    <h1>Écouteurs d'évènements</h1>
+                        <pre><code data-trim contenteditable>
+&lt;a href="#"&gt;Click to say hello&lt;/a&gt;
+                    </code></pre>
+                    <div class="fragment">
+                        <p>En Javascript brut, version inline :</p>
+                        <pre><code data-trim contenteditable>
+&lt;a href="#" onclick="alert("Hello, world!"); return false;"&gt;Click to say hello&lt;/a&gt;
+                    </code></pre>
+                    </div>
+                    <div class="fragment">
+                        <p>En Javascript brut, avec la fonction <code>addEventListener</code> :</p>
+                        <pre><code data-trim contenteditable>
+var links = document.getElementsByTagName("a"),
+    link = links[0];
+
+link.addEventListener("click", function(e){
+    e.preventDefault();
+    alert("Hello, world!");
+}, false);
+                    </code></pre>
+                    </div>
+                </section>
+                <section>
+                    <h1>Suite</h1>
+                    <p><a href="2.jquery.html">Partie 2 : jQuery</a></p>
+                </section>
+            </div>
+        </div>
+        <script src="../lib/reveal/lib/js/head.min.js"></script>
+        <script src="../lib/reveal/js/reveal.js"></script>
+        <script>
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: false,
+                slideNumber: 'c/t',
+                mouseWheel: false,
+                history: true,
+                transition: 'default', // none|fade|slide|convex|concave|zoom
+                dependencies: [
+                    { src: '../lib/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: '../lib/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: '../lib/reveal/plugin/notes/notes.js', async: true }
+                ]
+            });
+        </script>
+    </body>
+</html>

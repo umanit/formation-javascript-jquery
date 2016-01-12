@@ -1,0 +1,28 @@
+{
+    "books": [
+        {
+            "title": "L'Écume des Jours",
+            "author": "Boris Vian",
+            "url": "http://livre.fnac.com/a258354/Boris-Vian-L-ecume-des-jours",
+            "external": true
+        },
+        {
+            "title": "Voyage au Centre de la Terre",
+            "author": "Jules Verne",
+            "url": "http://livre.fnac.com/a1080135/Jules-Verne-Voyage-au-centre-de-la-terre",
+            "external": true
+        },
+        {
+            "title": "L'Assomoir",
+            "author": "Émile Zola",
+            "url": "http://livre.fnac.com/a2170855/Emile-Zola-L-assomoir",
+            "external": true
+        },
+        {
+            "title": "Notre-Dame de Paris",
+            "author": "Victor Hugo",
+            "url": "http://livre.fnac.com/a101669/Victor-Hugo-Notre-Dame-de-Paris",
+            "external": false
+        }
+    ]
+}

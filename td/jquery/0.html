@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>jQuery</title>
+        <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="jumbotron">
+            <div class="container">
+                <p>Objectifs : faire une requête (ajax) et récupérer sa réponse.</p>
+                <p>En utilisant la fonction <code>$.ajax</code> de jQuery et sans modifier le fichier HTML :</p>
+                <ol>
+                    <li>Prendre connaissance de la <a href="http://api.jquery.com/jquery.ajax" target="_blank">documentation</a>.
+                    <li>Faire un appel ajax du fichier <code>books.json</code>. Utiliser <code>$.ajax(params);</code> où <code>params</code> est un objet contenant au moins les clés <code>url</code> (chaîne de caractères désignant la ressource à requêter) et <code>success</code> (fonction anonyme de callback).
+                    <li>Stocker la réponse de cet appel dans une variable (sniffer les paramètres de la fonction de callback pour trouver la réponse).
+                    <li>Boucler sur cette variable pour compléter la liste à puces (<code>$('&lt;li&gt;')</code> et <code>$('&lt;a&gt;')</code>, <code>.html</code> ou <code>.append</code>, <code>.attr</code>).
+                    <li>Si la propriété <abbr>external</abbr> d'un livre vaut <code>true</code>, le lien devra s'ouvrir dans un nouvel onglet (<code>.attr</code>).
+                </ol>
+            </div>
+        </div>
+
+        <h1>Ajax</h1>
+        <ul id="books">
+            <li><a href="http://livre.fnac.com/a1956006/Le-Petit-Prince-Le-Petit-Prince-Antoine-de-Saint-Exupery">Le Petit Prince (Antoine de Saint-Exupéry)</a>
+            <li><a href="http://livre.fnac.com/a112484/Honore-de-Balzac-La-Peau-de-chagrin">La Peau de Chagrin (Honoré de Balzac)</a>
+        </ul>
+
+        <!-- Scripts -->
+        <script src="../../lib/jquery/jquery-2.2.0.min.js"></script>
+        <script src="0.js"></script>
+    </body>
+</html>

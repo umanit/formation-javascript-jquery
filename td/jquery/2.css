@@ -1,0 +1,50 @@
+.slideshow {
+    position: absolute;
+    left: 50%;
+    width: 600px;
+    margin-left: -300px;
+}
+.slideshow .slides {
+    overflow: hidden;
+    margin: 10px 0;
+    height: 390px;
+}
+.slideshow .slides .slide {
+    display: none;
+}
+.slideshow .slides .slide.active {
+    display: block;
+}
+.slideshow .controls {
+    position: relative;
+}
+.slideshow .controls .btn {
+    position: absolute;
+}
+.slideshow .controls .btn.prev {
+    left: 0;
+}
+.slideshow .controls .btn.next {
+    right: 0;
+}
+.slideshow .indicators {
+    text-align: center;
+    padding: 0;
+}
+.slideshow .indicators li {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    margin: 5px;
+    background: #ccc;
+}
+.slideshow .indicators li.active {
+    background: #333;
+}
+.slideshow .indicators li:hover {
+    cursor: pointer;
+}
+.slideshow .indicators li span {
+    display: none;
+}
