@@ -40,13 +40,18 @@
                 <section>
                     <h1>jQuery</h1>
                     <p>?</p>
-                    <p class="fragment">Un <strong>framework</strong> basé sur le langage Javascript, spécialisé dans la <strong>manipulation de <abbr title="Document Objet Model" lang="en">DOM</abbr></strong>.</p>
+                    <p class="fragment">
+                        Un <strong>framework</strong> basé sur le langage Javascript,<br>spécialisé dans la <strong>manipulation de <abbr title="Document Objet Model" lang="en">DOM</abbr></strong>.
+                    </p>
                     <p class="fragment">Facilite le développement et permet de s'affranchir d'une partie des problèmes de compatibilité cross browser.</p>
-                    <p class="fragment">jQuery <strong>est</strong> Javascript : il ne dispense donc pas de connaître les bases du langage.</p>
+                    <p class="fragment">jQuery <strong>est</strong> Javascript : il ne dispense donc pas de connaître le langage.</p>
                 </section>
                 <section>
                     <h1><abbr title="Content Delivery Network" lang="en">CDN</abbr></h1>
-                    <p>Utilisation d'un Content Delivery Network.</p>
+                    <p>
+                        L'utilisation d'un Content Delivery Network est une bonne pratique.<br>
+                        Mais il faut prévoir le cas où il est indisponible.
+                    </p>
                     <pre><code data-trim contenteditable>
 &lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"&gt;&lt;/script&gt;
 &lt;script&gt;window.jQuery || document.write('&lt;script src="path/to/local/jquery-1.11.2.min.js"&gt;&lt;\/script&gt;');&lt;/script&gt;
@@ -71,7 +76,7 @@ jQuery.noConflict(); // libère le $
 $; // ne désigne plus jQuery
 jQuery; // ok
                     </code></pre>
-                    <p>Autre solution : éviter d'utiliser plusieurs frameworks.</p>
+                    <p>Autre solution : éviter d'utiliser plusieurs frameworks ;-)</p>
                 </section>
                 <section>
                     <h1>Document ready</h1>
@@ -95,7 +100,10 @@ $(window).load(function(){
                 </section>
                 <section>
                     <h1>Sélection d'éléments <abbr title="Document Objet Model" lang="en">DOM</abbr></h1>
-                    <p>jQuery permet d'utiliser des sélecteurs <abbr title="Cascading Style Sheet" lang="en">CSS</abbr> :</p>
+                    <p>
+                        Comme son nom l'indique (pas trop),<br>
+                        jQuery a été conçu pour utiliser des sélecteurs <abbr title="Cascading Style Sheet" lang="en">CSS</abbr> :
+                    </p>
                     <pre><code data-trim contenteditable>
 // Les éléments "label"
 $("label");
@@ -113,13 +121,13 @@ submits.eq(1);
 $("h2");
 $("aside#right-col.blue");
 $("li a");
-$("li > a"); // les a descendant direct de li
+$("li > a"); // les a descendants directs de li
 $("img + p"); // les p immédiatement précédés de img
                     </code></pre>
                 </section>
                 <section>
                     <h1>Parcourir le <abbr title="Document Objet Model" lang="en">DOM</abbr></h1>
-                    <p>Utile pour se déplacer par rapport à un objet jQuery :</p>
+                    <p>Se déplacer par rapport à un objet jQuery :</p>
                     <pre><code data-trim contenteditable>
 var element = $("div").eq(0); // un sélecteur quelconque
 
@@ -132,7 +140,7 @@ element.siblings(selector); // ses frères
 element.next(selector); // son frère suivant
 element.prev(selector); // son frère précédent
                     </code></pre>
-                    <p>Où <code>selector</code> représente un sélecteur <abbr title="Cascading Style Sheet" lang="en">CSS</abbr> quelconque.</p>
+                    <p>Où <code>selector</code> représente un sélecteur <abbr title="Cascading Style Sheet" lang="en">CSS</abbr> comme vu précédemment.</p>
                 </section>
                 <section>
                     <h1>Écouteurs d'évènements</h1>
@@ -189,8 +197,8 @@ list.on("click", "a", function(e){
                     <h1>Écouteurs d'évènements</h1>
                     <ul>
                         <li>La fonction de callback fournit toujours l'évènement, noté <code>e</code> par convention.
-                        <li>Dans le callback, <code>this</code> désigne l'élément courant, et <code>$(this)</code> sa version jQuery
-                        <li>Attention (dans les boucles) à ne pas définir plusieurs fois les mêmes écouteurs car ils se cumulent
+                        <li>Dans le callback, <code>this</code> désigne l'élément courant, et <code>$(this)</code> sa version jQuery.
+                        <li>Attention (notamment dans les boucles) à ne pas définir plusieurs fois les mêmes écouteurs car ils se cumulent.
                     </ul>
                     <p>Pour décrocher un écouteur :</p>
                     <pre><code data-trim contenteditable>
@@ -203,7 +211,7 @@ link.off("click");
 link.click(); // JS brut
 link.trigger("click"); // jQuery
                     </code></pre>
-                    <p>Par sécurité, tous les évènements ne peuvent pas être déclenchés.</p>
+                    <p>Par sécurité, tous les évènements ne peuvent pas être déclenchés depuis le code.</p>
                 </section>
                 <section>
                     <h1>Évènements personnalisés</h1>
@@ -226,17 +234,17 @@ setTimeout(function(){
                     <pre><code data-trim contenteditable>
 var elements = $("h2");
 
-elements.length;
+elements.length; // Une collection est un tableau évolué
+
+// Convertit la collection jQuery en tableau d'objets DOM
+elements.get(); // Tableau simple
 
 elements.doSomething();
 
 elements.each(function(index, element){
-    console.log(this === element);
-    console.log($(this) === $(this));
+    console.log(this === element); // true
+    console.log($(this) === $(element)); // true
 });
-
-// Convertit la collection jQuery en tableau d'objets DOM
-elements.get();
                     </code></pre>
                 </section>
                 <section>
@@ -251,13 +259,13 @@ $(":last");
 $(":nth-child()");
 $(":only-child");
 $(":even");
+$(":odd");
                     </code></pre>
                 </section>
                 <section>
                     <h1>Pseudo sélecteurs</h1>
                     <p>Divers</p>
                     <pre><code data-trim contenteditable>
-$(":odd");
 $(":eq()");
 $(":gt()");
 $(":lt()");
@@ -286,7 +294,18 @@ $(":disabled"); // éléments désactivés (grisés)
                     </code></pre>
                 </section>
                 <section>
-                    <h1>Pseudo sélecteurs</h1>
+                    <h1>Sélecteurs d'attributs</h1>
+                    <p>Les plus courants.</p>
+                    <pre><code data-trim contenteditable>
+$('[href="http://www.umanit.fr"]'); // égal
+$('[href!="http://www.umanit.fr"]'); // pas d'attribut href ou différent de la valeur indiquée
+$('[href*="https"]'); // contient
+$('[href^="https"]'); // commence par
+$('[href$=".fr"]'); // se termine par
+                    </code></pre>
+                </section>
+                <section>
+                    <h1>Sélecteurs (en tous genres)</h1>
                     <p>Possibilité de les cumuler.</p>
                     <pre><code data-trim contenteditable>
 $(":header:not(h1)");
@@ -294,23 +313,13 @@ $("tr:even");
 $("tr:not(tr:last)");
 $("td:gt(4):lt(10)");
                     </code></pre>
-                </section>
-                <section>
-                    <h1>Sélecteurs d'attributs</h1>
-                    <p>Les plus courants.</p>
-                    <pre><code data-trim contenteditable>
-$('[href*="https"]'); // contient
-$('[href!="http://www.umanit.fr"]'); // pas d'attribut href ou différent de la valeur indiquée
-$('[href^="https"]'); // commence par
-$('[href$=".fr"]'); // se termine par
-                    </code></pre>
-                </section>
-                <section>
-                    <h1>Sélecteurs d'attributs</h1>
-                    <p>Possibilité de les cumuler.</p>
-                    <pre><code data-trim contenteditable>
-$('a[href^="http"][href=".fr"]');
-                    </code></pre>
+                    <div class="fragment">
+                        <p>Et plusieurs façons d'écrire la même chose.</p>
+                        <pre><code data-trim contenteditable>
+$('a[href^="http"][href=".fr"]:not(:visible)');
+$('a[href^="http"][href=".fr"]:hidden');
+                        </code></pre>
+                    </div>
                 </section>
                 <section>
                     <h1>L'attribut <code>data-*</code></h1>

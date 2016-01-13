@@ -40,15 +40,18 @@
 
                 <section>
                     <h1>Ecrire un script</h1>
-                    <p>Les scripts se placent dans <code>&lt;head&gt;</code> ou plutôt juste avant <code>&lt;/body&gt;</code>.</p>
-                    <p>L'attribut <code>language</code> de la balise <code>script</code> est déprécié depuis HTML5.</p>
+                    <p>
+                        Les scripts se placent dans <code>&lt;head&gt;</code><br>
+                        mais on préfèrera les mettre juste avant <code>&lt;/body&gt;</code>.
+                    </p>
                     <pre><code data-trim contenteditable>
 &lt;script&gt;
     "use strict"; // ça c'est cadeau
     alert("Hello, world!");
 &lt;/script&gt;
-&lt;script src="path/to/source.js"&gt;&lt;/script&gt;
+&lt;script src="path/to/script.js"&gt;&lt;/script&gt;
                     </code></pre>
+                    <p>L'attribut <code>language</code> de la balise <code>script</code> est déprécié depuis HTML5.</p>
                 </section>
                 <section>
                     <h1>La console</h1>
@@ -62,6 +65,10 @@ console.info(message);
 console.warn(message);
 console.error(message);
                     </code></pre>
+                </section>
+                <section>
+                    <h1>Quelques rappels ?</h1>
+                    <p>Pour voir (ou revoir) les bases de Javascript et de la programmation.</p>
                 </section>
                 <section>
                     <h1>Quelques rappels ?</h1>
@@ -120,6 +127,35 @@ var size = 167,
                         <li>fonctions
                     </ul>
                     <hr>
+                    <p>
+                        Leur portée (scope) est la fonction parente,<br>
+                        et la <code>window</code> par défaut.
+                    </p>
+                    <pre><code data-trim contenteditable>
+var customerName = "Marie";
+customerName; // "Marie"
+window.customerName; // "Marie"
+                    </code></pre>
+                    <pre class="fragment"><code data-trim contenteditable>
+function doSomething() {
+    var customerName = "Marie";
+    customerName; // "Marie"
+    window.customerName; // undefined
+}
+customerName; // undefined
+window.customerName; // undefined
+                    </code></pre>
+                </section>
+                <section>
+                    <h1>Quelques rappels ?</h1>
+                    <ul>
+                        <li>commentaires
+                        <li><strong>variables & types</strong>
+                        <li>instructions
+                        <li>structures de contrôle
+                        <li>fonctions
+                    </ul>
+                    <hr>
                     <p>On peut mettre de tout dans une variable. Types de données primitifs :</p>
                     <pre><code data-trim contenteditable>
 "Hello, world!"; // string
@@ -128,7 +164,30 @@ true; // boolean
 null; // null
 undefined; // undefined
                     </code></pre>
-                    <p>Tout le reste est <code>object</code> ou <code>function</code>.</p>
+                </section>
+                <section>
+                    <h1>Quelques rappels ?</h1>
+                    <ul>
+                        <li>commentaires
+                        <li><strong>variables & types</strong>
+                        <li>instructions
+                        <li>structures de contrôle
+                        <li>fonctions
+                    </ul>
+                    <hr>
+                    <p>
+                        Tout ce qui n'est pas primitif est <code>object</code>.<br>
+                        <em>Tout</em>, c'est par exemple :
+                    </p>
+                    <ul>
+                        <li><code>screen</code>
+                        <li><code>navigator</code>
+                        <li><code>window</code>
+                        <li><code>document</code>
+                        <li><code>console</code>
+                        <li><code>history</code>
+                        <li>...
+                    </ul>
                 </section>
                 <section>
                     <h1>Quelques rappels ?</h1>
@@ -212,7 +271,7 @@ a = undefined;
                         <li>fonctions
                     </ul>
                     <hr>
-                    <p>Dicte une action.</p>
+                    <p>Une instruction dicte une action.</p>
                     <pre><code data-trim contenteditable>
 var message;
 message = 2 * 5;
@@ -222,7 +281,7 @@ message = "Hello, world!";
 console.log(message.length);
 document.getElementById("demo").innerHTML = message;
                     </code></pre>
-                    <p>Séparées par un point-virgule et un retour à la ligne.</p>
+                    <p>Elles sont séparées par un point-virgule et un retour à la ligne.</p>
                 </section>
                 <section>
                     <h1>Quelques rappels ?</h1>
@@ -234,7 +293,10 @@ document.getElementById("demo").innerHTML = message;
                         <li>fonctions
                     </ul>
                     <hr>
-                    <p>Servent à contrôler les instructions pour écrire des <strong>algorithmes</strong>.</p>
+                    <p>
+                        Servent à contrôler les instructions<br>
+                        pour écrire des <strong>algorithmes</strong>.
+                    </p>
                     <pre><code data-trim contenteditable>
 var age = 10; // instruction
 
@@ -297,7 +359,11 @@ console.log("âge : " + age); // instruction
                         <li><strong>fonctions</strong>
                     </ul>
                     <hr>
-                    <p>Une procédure avec <strong>des entrées</strong> (paramètres) et <strong>une sortie</strong> (valeur de retour).</p>
+                    <p>
+                        Une fonction est une procédure avec<br>
+                        <strong>des entrées</strong> (paramètres) et <strong>une sortie</strong> (valeur de retour).<br>
+                        On trouve un traitement entre les deux.
+                    </p>
                     <pre><code data-trim contenteditable>
 function add(a, b) {
     var result = a + b;
@@ -324,7 +390,8 @@ function add(a, b){
     // ...
 }
 add(1, 1);
-
+                    </code></pre>
+                    <pre class="fragment"><code data-trim contenteditable>
 // Fonction dite "anonyme" stockée dans une variable
 var add = function(a, b){
     // ...
@@ -342,12 +409,14 @@ add(1, 1);
                         <li><strong>fonctions</strong>
                     </ul>
                     <hr>
-                    <p>Javascript embarque déjà quelques fonctions prédéfinies,<br>et jQuery encore plus !</p>
+                    <p>Javascript embarque déjà quelques fonctions ou librairies prédéfinies :</p>
+                    <p><code>Math</code>, <code>Date</code>, <code>JSON</code>, <code>parseInt</code>, <code>setTimeout</code>, <code>alert</code>, ...</p>
+                    <p>et jQuery encore plus !</p>
                 </section>
                 <section>
                     <h1>Opérateurs</h1>
                     <ul>
-                        <li><code>+</code>
+                        <li><code>+</code> (addition et concaténation)
                         <li><code>-</code>
                         <li><code>*</code>
                         <li><code>/</code>
@@ -360,12 +429,15 @@ var a = 1;
 a = a + 1; // 2
 a++; // 3
                     </code></pre>
+                    <pre><code data-trim contenteditable>
+"Hello," + " world!";
+                    </code></pre>
                 </section>
                 <section>
                     <h1>Affectations</h1>
                     <ul>
                         <li><code>=</code>
-                        <li><code>+=</code>
+                        <li><code>+=</code> (addition et concaténation)
                         <li><code>-=</code>
                         <li><code>*=</code>
                         <li><code>/=</code>
@@ -375,6 +447,10 @@ var a = 1;
 a = a + 5; // 6
 a += 2; // 8
 a *= 2; // 16
+                    </code></pre>
+                    <pre><code data-trim contenteditable>
+var a = "Hello,";
+a += " world!";
                     </code></pre>
                 </section>
                 <section>
@@ -429,7 +505,7 @@ submits.[1];
                 </section>
                 <section>
                     <h1>Évènements</h1>
-                    <p>Déclenchés sur un objet, le plus souvent sur un élément <abbr title="Document Objet Model" lang="en">DOM</abbr>.</p>
+                    <p>Déclenchés sur des éléments <abbr title="Document Objet Model" lang="en">DOM</abbr>.</p>
                 </section>
                 <section>
                     <h1>Évènements</h1>
@@ -472,7 +548,7 @@ submits.[1];
 &lt;a href="#"&gt;Click to say hello&lt;/a&gt;
                     </code></pre>
                     <div class="fragment">
-                        <p>En Javascript brut, version inline :</p>
+                        <p>En Javascript brut, version inline (old school) :</p>
                         <pre><code data-trim contenteditable>
 &lt;a href="#" onclick="alert("Hello, world!"); return false;"&gt;Click to say hello&lt;/a&gt;
                     </code></pre>
