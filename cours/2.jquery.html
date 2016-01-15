@@ -316,8 +316,8 @@ $("td:gt(4):lt(10)");
                     <div class="fragment">
                         <p>Et plusieurs façons d'écrire la même chose.</p>
                         <pre><code data-trim contenteditable>
-$('a[href^="http"][href=".fr"]:not(:visible)');
-$('a[href^="http"][href=".fr"]:hidden');
+$('a[href^="http"][href$=".fr"]:not(:visible)');
+$('a[href^="http"][href$=".fr"]:hidden');
                         </code></pre>
                     </div>
                 </section>
