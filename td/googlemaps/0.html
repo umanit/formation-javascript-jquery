@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Google Maps</title>
+        <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="0.css">
+    </head>
+    <body>
+        <div class="jumbotron">
+            <div class="container">
+                <p>Objectifs : afficher une carte Google Maps et positionner quelques markers.</p>
+                <p>Avec l'API Google Maps V3, et sans modifier le fichier HTML :</p>
+                <ol>
+                    <li>Prendre connaissance de la <a href="https://developers.google.com/maps/documentation/javascript/reference" target="_blank">documentation de l'API Google Maps V3</a>.
+                    <li>Créer une carte dont le centre se trouve en 47.18863349999999, -1.5519100999999864 (1 rue Victor Hugo à Rezé). Utiliser <code>google.maps.Map</code>.
+                    <li>Écrire un script pour stocker les données du tableau HTML dans un tableau Javascript. La structure de données à obtenir est libre.
+                    <li>Parcourir le tableau obtenu pour ajouter les restaurants à la carte, sous forme de markers. Utiliser <code>google.maps.Marker</code>.
+                    <li>Centrer la carte sur les markers. Utiliser <code>google.maps.LatLngBounds</code>.
+                    <li>Au click sur un des markers, ajouter la classe <code>info</code> à la ligne <code>&lt;tr&gt;</code>correspondante dans le tableau <code>#restos</code>. Utiliser l'attribut <code>data-resto-identifier</code> pour cibler la bonne ligne, et <code>google.maps.event.addListener</code> pour créer un écouteur d'évènement.
+                </ol>
+            </div>
+        </div>
+
+        <h1>Restaurants</h1>
+
+        <table id="restos" class="table table-condensed">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-resto-identifier="482">
+                    <td>Le Bistrot Gourmand</td>
+                    <td>47.189095</td>
+                    <td>-1.555173</td>
+                </tr>
+                <tr data-resto-identifier="1990">
+                    <td>Jia Jia Le</td>
+                    <td>47.187987</td>
+                    <td>-1.551633</td>
+                </tr>
+                <tr data-resto-identifier="463">
+                    <td>Aux Délices du Château</td>
+                    <td>47.188482</td>
+                    <td>-1.550946</td>
+                </tr>
+                <tr data-resto-identifier="910">
+                    <td>Le Relais Ogien</td>
+                    <td>47.190145</td>
+                    <td>-1.548886</td>
+                </tr>
+                <tr data-resto-identifier="26">
+                    <td>La Terrasse Florentine</td>
+                    <td>47.190174</td>
+                    <td>-1.547513</td>
+                </tr>
+                <tr data-resto-identifier="1280">
+                    <td>Domino's Pizza</td>
+                    <td>47.190378</td>
+                    <td>-1.547513</td>
+                </tr>
+                <tr data-resto-identifier="922">
+                    <td>Café du Vélo</td>
+                    <td>47.190196</td>
+                    <td>-1.547287</td>
+                </tr>
+                <tr data-resto-identifier="274">
+                    <td>Diner's Burger</td>
+                    <td>47.193484</td>
+                    <td>-1.545839</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div id="map"></div>
+
+        <!-- Scripts -->
+        <script src="../../lib/jquery/jquery-2.2.0.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js"></script>
+        <script src="0.js"></script>
+    </body>
+</html>
