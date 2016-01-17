@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>jQuery</title>
+        <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../lib/jqueryui/jquery-ui.min.css">
+        <link rel="stylesheet" href="3.css">
+    </head>
+    <body>
+        <div class="jumbotron">
+            <div class="container">
+                <p>Objectifs : intégrer des sons et vidéos. Développer un player vidéo en s'appuyant sur un plugin jQuery tiers.</p>
+                <p>En Javascript ou jQuery, sans modifier le fichier HTML :</p>
+                <ol>
+                    <li>Jouer <code>keyboard.mp3</code> à la saisie de texte dans le <code>textarea</code>, à chaque fois qu'une touche est pressée.
+                    <li>Lorsque la touche <em>Entrée</em> est pressée, jouer <code>carriage-return.mp3</code>. Utiliser <code>e.keyCode</code> pour détecter la touche pressée.
+                    <li>En Javascript ou jQuery, supprimer l'attribut <code>controls</code> de la balise <code>&lt;video&gt;</code>.
+                    <li>Sur les boutons <code>#play</code> et <code>#pause</code>, brancher les méthodes <code>play</code> et <code>pause</code> de l'élément DOM <code>&lt;video&gt;</code>.
+                    <li>Utiliser le plugin <em>Slider</em> de <em>jQuery UI</em> sur <code>#volume</code> (voir sa <a href="https://jqueryui.com/slider/" target="_blank">documentation</a>). jQuery UI est déjà intégré à la page.
+                    <li>Faire coulisser le slider doit modifier le volume de la vidéo. Agir sur la propriété <code>volume</code> de l'élément DOM <code>&lt;video&gt;</code>.
+                </ol>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" class="form-control" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <audio src="audio/keyboard.mp3" preload></audio>
+        <audio src="audio/carriage-return.mp3" preload></audio>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <video src="video/big-buck-bunny.mp4" controls></video>
+                <div id="volume" title="Volume"></div>
+                <div class="btn-group" role="group">
+                    <button id="play" type="button" class="btn btn-default">
+                        Play
+                        <span class="glyphicon glyphicon-play"></span>
+                    </button>
+                    <button id="pause" type="button" class="btn btn-default">
+                        Pause
+                        <span class="glyphicon glyphicon-pause"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="../../lib/jquery/jquery-2.2.0.min.js"></script>
+        <script src="../../lib/jqueryui/jquery-ui.min.js"></script>
+        <script src="3.js"></script>
+    </body>
+</html>
